@@ -1,54 +1,69 @@
 # MD Analysis and MM/PBSA Toolkit
 
-A reproducible post-processing workflow for Molecular Dynamics (MD) simulations performed with GROMACS, integrating structural stability analysis and MM/PBSA binding free energy evaluation.
-
-This repository provides a unified Jupyter notebook implementing publication-ready analysis and automated energy parsing for protein–ligand systems.
+A reproducible post-processing workflow for Molecular Dynamics (MD) simulations performed with GROMACS. The notebook integrates structural stability analysis and MM/PBSA binding free energy evaluation for protein–ligand systems.
 
 ---
 
-## Overview
+## Scope
 
-The workflow supports:
+The workflow includes:
 
-- Structural stability assessment
-- Interaction persistence evaluation
-- Secondary structure monitoring
-- Global MM/PBSA binding energy analysis
-- Per-residue energy decomposition with automated residue selection
+- RMSD (global structural stability)
+- RMSF (residue flexibility)
+- Radius of Gyration (compactness)
+- SASA (solvent exposure)
+- Hydrogen bond analysis (with occupancy)
+- DSSP secondary structure analysis
+- Global MM/PBSA energy parsing
+- Per-residue energy decomposition with automated hotspot selection
 
-All figures are generated in publication-ready format (vector + high-resolution raster).
-
----
-
-## Implemented Analyses
-
-### Structural Analysis
-- Root-Mean-Square Deviation (RMSD)
-- Root-Mean-Square Fluctuation (RMSF)
-- Radius of Gyration (Rg)
-- Solvent Accessible Surface Area (SASA)
-- Hydrogen Bond Analysis (including occupancy %)
-- DSSP-based secondary structure evolution
-
-### Energetic Analysis (MM/PBSA)
-- Global energy term parsing
-- Wide-format energy table generation
-- Binding energy comparison plots
-- Per-residue energy decomposition
-- Automated identification of stabilising/destabilising residues
+All figures are exported in publication-ready formats (PDF, SVG, high-resolution PNG).
 
 ---
 
 ## Computational Assumptions
 
-- MD Engine: GROMACS (2021+ compatible)
-- Trajectory format: `.xtc`
-- Topology format: `.tpr`
-- MM/PBSA output: `g_mmpbsa` summary files
-- Energy units: kJ/mol (GROMACS convention)
+- Engine: GROMACS (2021+)
+- Trajectory: `.xtc`
+- Topology: `.tpr`
+- MM/PBSA output: `g_mmpbsa`
+- Energy units: kJ/mol (native GROMACS convention)
 
-The workflow is compatible with GPU-accelerated and HPC-based simulations.
+Compatible with GPU-accelerated and HPC-based simulations.
 
 ---
 
-## Repository Structure
+## Structure
+
+md-analysis-and-mmpbsa-toolkit/
+│
+├── md_analysis_and_mmpbsa_workflow.ipynb
+├── requirements.txt
+└── example_outputs/
+
+---
+
+## Installation
+
+pip install -r requirements.txt
+
+---
+
+## Usage
+
+jupyter notebook md_analysis_and_mmpbsa_workflow.ipynb
+
+Update file paths to your local MD and MM/PBSA outputs and execute all cells sequentially.
+
+---
+
+## Reproducibility
+
+- Native energy units preserved
+- Automatic ps → ns time conversion
+- Deterministic parsing and residue selection
+- Vector-format figure export
+
+---
+
+MIT License.
