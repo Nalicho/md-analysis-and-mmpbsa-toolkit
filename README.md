@@ -33,16 +33,6 @@ Compatible with GPU-accelerated and HPC-based simulations.
 
 ---
 
-## Structure
-
-md-analysis-and-mmpbsa-toolkit/
-│
-├── md_analysis_and_mmpbsa_workflow.ipynb
-├── requirements.txt
-└── example_outputs/
-
----
-
 ## Installation
 
 pip install -r requirements.txt
